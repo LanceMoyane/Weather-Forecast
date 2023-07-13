@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp.DetailsPage"
+             Title="Details Page"
+             BackgroundColor="Teal">
+
+    <ScrollView>
+    <Grid RowDefinitions="auto,auto,auto,auto,auto,auto"
+          RowSpacing="20">
+
+        <Button Grid.Row="0" Text="Back"
+                FontSize="Medium"
+                WidthRequest="100"
+                HorizontalOptions="StartAndExpand"
+                BackgroundColor="Gold"
+                Margin="10,20,0,0"
+                x:Name="BtnBack"
+                Clicked="BtnBack_Clicked"/>
+
+
+        <StackLayout Grid.Row="1"
+                     Orientation="Vertical">
+            <Label x:Name="LBLCity" FontSize="40"
+                   HorizontalOptions="Center" TextColor="WhiteSmoke"
+                   />
+            <Label x:Name="LBLDescription" FontSize="Medium"
+                   HorizontalOptions="Center" TextColor="Wheat"
+                   Text="Clear Sky"/>
+
+        </StackLayout>
+        
+        <Image Grid.Row="2" x:Name="ImgWeatherIcon" VerticalOptions="Start"
+               HeightRequest="200"
+               WidthRequest="200"
+              Source="cloudy.png" />
+        
+        <StackLayout Grid.Row="3">
+            <Label x:Name="LBLSelectedDate" FontSize="Large" 
+                   HorizontalOptions="CenterAndExpand" 
+                   TextColor="NavajoWhite"
+                   Text="Tuesday 2023-07-11"/>
+        </StackLayout>
+
+        <Grid Grid.Row="4" RowDefinitions="Auto,Auto" 
+              ColumnDefinitions="0.33*,0.33*,0.33*" 
+              Margin="20">
+
+            <Image Grid.Row="0" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   HeightRequest="25"
+                   Source="humidity.png"/>
+
+            <Label x:Name="LBLHumidity"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Text="20%"/>
+
+            <Label x:Name="LBLTemperature"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Grid.RowSpan="2"
+                   HorizontalOptions="Center"
+                   FontSize="40"
+                   Text="19°C"
+                   FontAttributes="Bold"
+                   TextColor="Yellow"
+                   />
+            <Image Grid.Row="0" Grid.Column="02"
+                   HorizontalOptions="Center"
+                   HeightRequest="30"
+                   Source="wind.jpg"/>
+
+            <Label x:Name="LBLWind"
+                   Grid.Row="1"
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Text="27km/h"/>
+
+        </Grid>
+
+            <Frame Margin="15"
+                     HeightRequest="150"
+                     HasShadow="True"
+                     BorderColor="Yellow"
+                     BackgroundColor="DarkSlateGray"
+                    CornerRadius="30"
+                   Grid.Row="5">
+                <StackLayout>
+
+
+                    <Grid Grid.Row="3" RowDefinitions="Auto,Auto,auto,auto" 
+              ColumnDefinitions="0.33*,0.33*,0.33*,0.33*" 
+              Margin="20">
+                        <Label Grid.Row="0" 
+                       Text="Sunrise :"
+                       Grid.Column="0"
+                   FontSize="Small"
+                   HorizontalOptions="StartAndExpand"/>
+                        
+                        <Label x:Name="LBLSunrise" Grid.Row="0" 
+                       Grid.Column="1"
+                       FontSize="Small"
+                       Text="6:54 AM"
+                        HorizontalOptions="StartAndExpand"/>
+                        
+                        <Label Grid.Row="0" 
+                       Text="Sunset :"
+                       Grid.Column="2"
+                   FontSize="Small"
+                   HorizontalOptions="StartAndExpand"/>
+
+                        <Label x:Name="LBLSunset"  Grid.Row="0" 
+                       Grid.Column="3"
+                   FontSize="Small"
+                   Text="5:32 PM"
+                   HorizontalOptions="StartAndExpand"/>
+
+                        <Label Grid.Row="1" 
+                       Text="feels Like :"
+                       Grid.Column="0"
+                   FontSize="Small"
+                   HorizontalOptions="StartAndExpand"/>
+
+                        <Label x:Name="LBLFeelsLike"  Grid.Row="1" 
+                       Grid.Column="1"
+                   FontSize="Small"
+                   Text="15°C"
+                   HorizontalOptions="StartAndExpand"/>
+                        
+                        <Label Grid.Row="1" 
+                       Text="Pressure :"
+                       Grid.Column="2"
+                   FontSize="Small"
+                   HorizontalOptions="StartAndExpand"/>
+
+                        <Label x:Name="LBLPressure" Grid.Row="1" 
+                       Grid.Column="3"
+                   FontSize="Small"
+                   Text="997mb"
+                   HorizontalOptions="StartAndExpand"/>
+
+                        <Label Grid.Row="2" 
+                       Text="Sea Level :"
+                       Grid.Column="0"
+                   FontSize="Small"
+                   HorizontalOptions="StartAndExpand"/>
+
+                        <Label x:Name="LBLSeaLevel"  Grid.Row="2" 
+                       Grid.Column="1"
+                   FontSize="Small"
+                   Text="1,339 m"
+                   HorizontalOptions="StartAndExpand"/>
+                        <Label Grid.Row="2" 
+                       Text="Ground Level :"
+                       Grid.Column="2"
+                   FontSize="Small"
+                   HorizontalOptions="StartAndExpand"/>
+
+                        <Label x:Name="LBLGroundLevel" Grid.Row="2" 
+                       Grid.Column="3"
+                   FontSize="Small"
+                   Text="17°C"
+                   HorizontalOptions="StartAndExpand"/>
+                    </Grid>
+
+                </StackLayout>
+
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

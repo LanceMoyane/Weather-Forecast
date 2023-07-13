@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp.WeatherPage"
+             BackgroundColor="Teal"
+             Title="WeatherPage">
+    <ScrollView>
+        <Grid RowDefinitions="auto,auto,auto,auto,auto"
+          RowSpacing="20">
+
+            <StackLayout Grid.Column="0"
+                     Margin="20,20,20,0"
+                     Orientation="Horizontal">
+                <Frame Padding="10" CornerRadius="20"
+                   BorderColor="LightGray"
+                    BackgroundColor="Gold">
+                    
+                    <Button Text="Your Location"
+                            Clicked="TapLocation_Tapped"
+                            TextColor="Purple"
+                            BackgroundColor="White"/>
+                   <!-- <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapLocation"
+                                              Tapped="TapLocation_Tapped"/>
+                    </Frame.GestureRecognizers>-->
+                </Frame>
+
+                <ImageButton Source="download.png" HeightRequest="30"
+                         WidthRequest="30"
+                         HorizontalOptions="EndAndExpand"
+                         Clicked="ImageButton_Clicked"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+                     Orientation="Vertical">
+                <Label x:Name="LBLCity" FontSize="40"
+                   HorizontalOptions="Center" TextColor="WhiteSmoke"
+                   Text="{Binding }"/>
+                <Label x:Name="LBLDescription" FontSize="Medium"
+                   HorizontalOptions="Center" TextColor="Wheat"
+                   />
+
+            </StackLayout>
+
+            <Image Grid.Row="2" x:Name="ImgWeatherIcon" VerticalOptions="Start"
+               HeightRequest="200"
+               WidthRequest="200"
+               />
+
+            <Grid Grid.Row="3" RowDefinitions="Auto,Auto" 
+              ColumnDefinitions="0.33*,0.33*,0.33*" 
+              Margin="20">
+
+                <Image Grid.Row="0" Grid.Column="0"
+                   HorizontalOptions="Center"
+                   HeightRequest="25"
+                   Source="humidity.png"/>
+
+                <Label x:Name="LBLHumidity"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   />
+
+                <Label x:Name="LBLTemperature"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Grid.RowSpan="2"
+                   HorizontalOptions="Center"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   TextColor="Yellow"
+                   />
+                <Image Grid.Row="0" Grid.Column="02"
+                   HorizontalOptions="Center"
+                   HeightRequest="30"
+                   Source="wind.jpg"/>
+
+                <Label x:Name="LBLWind"
+                   Grid.Row="1"
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   />
+            </Grid>
+
+
+
+            <CollectionView Grid.Row="4" x:Name="WeatherView"
+                            SelectedItem="OnItemSelected"
+                            SelectionMode="Single">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="2">
+                    </LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Frame Margin="10"
+                                   HeightRequest="79"
+                                   HasShadow="True"
+                                   BorderColor="Yellow"
+                                   BackgroundColor="DarkGray"
+                                   CornerRadius="30">
+                            <Grid Grid.Row="4"
+                          RowDefinitions="Auto,auto,auto,auto,auto"
+                          ColumnDefinitions="0.33*,0.33*,0.33*,0.33*"
+                          >
+
+                                <Image Grid.Row="0"
+                               Grid.Column="0"
+                               HorizontalOptions="StartAndExpand"
+                               WidthRequest="50"
+                               Source="{Binding weather[0].iconUrl}"/>
+                                <Label Grid.Row="0"
+                               Grid.Column="1"
+                               HorizontalOptions="Center"
+                               FontSize="Medium"
+                               TextColor="Gold"
+                               Text="{Binding main.maximum,StringFormat='{0}°C'}"/>
+                                <Label Grid.Row="0"
+                               Grid.Column="2"
+                               HorizontalOptions="Center"
+                               FontSize="Medium"
+                               TextColor="Blue"
+                               Text="{Binding main.minimum,StringFormat='{0}°C'}"/>
+                                <Label Grid.Row="0"
+                               Grid.Column="3"
+                               HorizontalOptions="Center"
+                               FontSize="Default"
+                               TextColor="Wheat"
+                               Text="{Binding dt_txt,StringFormat='{0:MM/dd/yyyy}'}"
+                               />
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+</ContentPage>
